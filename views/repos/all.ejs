@@ -1,0 +1,19 @@
+<div class="row">
+  <div class="col s12 l6">
+  <h1>Your Repo List</h1>
+  <p class="repo-list-title">Click on a project title to view details.</p>
+  </div>
+</div>
+<div class="row">
+  <div class="col s10">
+      <% repos.forEach(function(repo) { %>
+      <div class="repo-list-item row">
+        <div id="card-panel-box" class="col s12 card-panel grey lighten-1">
+          <h2>
+            <a class="repo-name repo-post" data-id="<%- repo.id %>" data-name="<%- repo.name %>" href="/repos/<%= repo.id %>"><%= repo.name %></a>
+          </h2>
+        </div>
+      </div>
+      <% }) %>
+  </div>
+</div>

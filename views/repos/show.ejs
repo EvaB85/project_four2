@@ -1,0 +1,32 @@
+<div class="row">
+  <div class="col s12 l12">
+    <h1 class="reponame"><%= repo.reponame %></h1>
+    <a id="repo-btn" class="waves-effect waves-light btn left" href="/repos">Return to Repo List</a>
+    <button id="log-time-btn" data-target="modal1" class="btn modal-trigger left">Log Time</button>
+  </div>
+</div>
+<div class="row">
+  <div class="col s12 m12 l12">
+    <p class="time-logs">Total time logged: <span><%= totalTime %></span> minutes</p>
+    <hr>
+    <% timelogs.forEach(function(timelog) { %>
+    <h5>You've logged: <%= timelog.min %> of minutes on this date: <%= timelog.date %></h5>
+
+    <% }); %>
+  </div>
+</div>
+
+<div id="modal1" class="modal">
+    <div class="modal-content">
+      <h3>Log your time:</h3>
+      <form action="/time/<%= repo.id %>" method="post">
+          <label class="label-text">How many minutes have you logged on this Repo?
+            <input type="text" name="min">
+          </label>
+          <label class="label-text">What's today's date?
+            <input type="text" name="date">
+          </label>
+          <input class="log-time-button" type="submit" value="Log Time">
+      </form>
+    </div>
+  </div>
